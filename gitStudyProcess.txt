@@ -5,7 +5,7 @@
 
 1.创建一个git版本库:
 	$ mkdir learngit	//创建目录learngit
-	$ cd learngit		//跟换目录到learngit
+	$ cd learngit		//进入目录到learngit		$ cd .. 上级目录名
 	$ pwd				//用于显示当前目录
 
 2.通过git init命令把这个目录变成Git可以管理的仓库：
