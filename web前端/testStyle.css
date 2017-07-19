@@ -1,0 +1,9 @@
+  #div1 {
+      background: red;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      padding: 5px;
+      color: green;
+      font-size: 10px;
+  }
