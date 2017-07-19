@@ -1,0 +1,44 @@
+0.Windows上安装Git：
+    $ git config --global user.name "Your Name"
+    $ git config --global user.email "email@example.com"
+        git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+
+1.创建一个git版本库:
+	$ mkdir learngit	//创建目录learngit
+	$ cd learngit		//跟换目录到learngit
+	$ pwd				//用于显示当前目录
+
+2.通过git init命令把这个目录变成Git可以管理的仓库：
+	$ git init
+	Initialized empty Git repository in /Users/michael/learngit/.git/
+
+3.把文件添加到版本库:(一定要放到learngit目录下（子目录也行），因为这是一个Git仓库，放到其他地方Git再厉害也找不到这个文件。)
+	$ git add readme.txt		(告诉Git，把文件readme.txt添加到仓库)
+	$ git commit -m "wrote a readme file"		(告诉Git，把文件readme.txt提交到仓库; -m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的)
+
+4.git status掌握仓库当前的状态，git diff查看修改内容：
+	对文件作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步，第一步是git add，第二步git commit -m "xxx"
+
+5.版本回退：
+	a.用git log命令查看历史记录:
+		a5b8a219f0fd8fdd057ad871ef8811dc2790ed3b 5、a-查看历史记录
+		89c474607d55e4b77e631f2ec842d41e5376e54a 4、掌握仓库当前状态，查看修改内容
+		445678d782078ae90a30b82886c271230dcc1101 把文件添加提交到版本库
+		a5c61a437f03979237399b9969d89067f3f7aecf 1、创建一个git版本库
+		前面的一串数字是commit id（版本号），可以根据commit id（版本号）回到以前任意操作的文件。
+	
+	b.用git reset --hard HEAD^ 进行版本回退：
+		在Git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100；
+
+	c.已经回退到上一版本，但是现在又想回去，用$ git reset --hard commit id
+		没有退出命令行窗口，找到之前git log命令下commit id;
+		版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。
+
+	d.若已经退出命令窗口，git reflog用来记录你的每一次命令，找到commit id
+
+	e.总结
+		HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+
+		穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+
+		要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
