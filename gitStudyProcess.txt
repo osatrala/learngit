@@ -146,3 +146,6 @@
 
 		要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
 		Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
+
+		c.克隆到本地版本库后，修改后可以上传至github：
+				$ git push origin master
